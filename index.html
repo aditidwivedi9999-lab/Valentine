@@ -1,0 +1,28 @@
+<script>
+const noBtn = document.getElementById('noBtn');
+const yesBtn = document.querySelector('.yes');
+
+noBtn.addEventListener('mouseover', () => {
+  const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+  const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+  noBtn.style.position = 'absolute';
+  noBtn.style.left = x + 'px';
+  noBtn.style.top = y + 'px';
+});
+
+yesBtn.addEventListener('mouseover', () => {
+  let scale = yesBtn.style.transform.replace('scale(', '').replace(')', '') || 1;
+  scale = parseFloat(scale) + 0.15;
+  yesBtn.style.transform = `scale(${scale})`;
+});
+
+function yesClicked() {
+  document.body.innerHTML = `
+    <div style="text-align:center; font-family:Segoe UI;">
+      <h1 style="color:#e63946;">Yayyy! 💕</h1>
+      <p style="font-size:20px;">You just made my day, Shruti 🌹</p>
+      <p style="font-size:18px;">Happy Valentine’s 💘</p>
+    </div>
+  `;
+}
+</script>
